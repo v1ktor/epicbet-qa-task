@@ -1,10 +1,12 @@
-import { BrowserContext } from "@playwright/test";
+import { BrowserContext, Page } from "@playwright/test";
 
 export class Cookie {
   private readonly browserContext: BrowserContext;
+  private readonly page: Page;
 
-  constructor(browserContext: BrowserContext) {
+  constructor(page: Page, browserContext: BrowserContext) {
     this.browserContext = browserContext;
+    this.page = page;
   }
 
   public async declineCookies(): Promise<void> {
@@ -17,5 +19,7 @@ export class Cookie {
         path: "/",
       },
     ]);
+
+    await this.page.goto("/et");
   }
 }
