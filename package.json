@@ -1,0 +1,22 @@
+{
+  "name": "epicbet-qa-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v1ktor/epicbet-qa-task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/v1ktor/epicbet-qa-task/issues"
+  },
+  "homepage": "https://github.com/v1ktor/epicbet-qa-task#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.0"
+  }
+}
