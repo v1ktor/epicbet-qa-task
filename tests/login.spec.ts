@@ -19,6 +19,10 @@ test.describe("LOGIN", () => {
     await loginModal.selectLoginOption("bank");
 
     await loginModal.validator.validateBankLoginFormIsVisible();
+
+    await loginModal.clickContinue();
+
+    await loginModal.validator.validateBankChoicePageIsInvoked();
   });
 
   test("Google login form is visible", async ({ loginModal }) => {
@@ -29,6 +33,10 @@ test.describe("LOGIN", () => {
     await loginModal.validator.validateGoogleLoginFormIsVisible(
       "Jätka Googlega",
     );
+
+    await loginModal.clickContinueWithGoogle();
+
+    await loginModal.validator.validateSignInWithGooglePageIsInvoked();
   });
 
   test("Facebook login form is visible", async ({ loginModal }) => {
@@ -39,5 +47,9 @@ test.describe("LOGIN", () => {
     await loginModal.validator.validateFacebookLoginFormIsVisible(
       "Jätka Facebookiga",
     );
+
+    await loginModal.clickContinueWithFacebook();
+
+    await loginModal.validator.validateSignInWithFacebookPageIsInvoked();
   });
 });

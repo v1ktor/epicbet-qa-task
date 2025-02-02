@@ -7,12 +7,14 @@ import { LoginModalValidator } from "./login-modal.validator";
 export class LoginModal {
   private readonly selectors: LoginModalSelectors;
   private readonly navigation: Navigation;
+  private readonly page: Page;
 
   public readonly validator: LoginModalValidator;
 
   constructor(page: Page) {
     this.selectors = new LoginModalSelectors(page);
     this.navigation = new Navigation(page);
+    this.page = page;
 
     this.validator = new LoginModalValidator(page);
   }
@@ -39,5 +41,22 @@ export class LoginModal {
     };
 
     await optionToClick[loginOptions].click();
+  }
+
+  public async clickContinue(): Promise<void> {
+    await this.selectors.buttonContinue.click();
+    await this.page.waitForURL(
+      "**/checkout-cdn.zimpler.net/v4/ee/identification*",
+    );
+  }
+
+  public async clickContinueWithGoogle(): Promise<void> {
+    await this.selectors.buttonSubmit.click();
+    await this.page.waitForURL("**/accounts.google.com/**");
+  }
+
+  public async clickContinueWithFacebook(): Promise<void> {
+    await this.selectors.buttonSubmit.click();
+    await this.page.waitForURL("**/www.facebook.com/**");
   }
 }

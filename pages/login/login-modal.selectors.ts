@@ -10,6 +10,7 @@ export class LoginModalSelectors {
   readonly buttonLogin: Locator;
   readonly buttonContinue: Locator;
   readonly buttonSubmit: Locator;
+  readonly buttonBanks: Locator;
 
   readonly inputEmail: Locator;
   readonly inputPassword: Locator;
@@ -37,6 +38,9 @@ export class LoginModalSelectors {
     this.buttonLogin = page.locator("button[data-testid='auth-login-button']");
     this.buttonContinue = page.locator("button[data-testid='continue-button']");
     this.buttonSubmit = page.locator("button[type='submit']");
+    this.buttonBanks = page.locator(
+      'section[data-test="ChooseBankList"] button',
+    );
 
     this.inputEmail = page.locator("input[data-testid='email-input']");
     this.inputPassword = page.locator("input[data-testid='password-input']");
