@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "eslint:check": "npx eslint .",
+    "eslint:fix": "npx eslint . --fix",
+    "prettier:check": "npx prettier --check .",
+    "prettier:fix": "npx prettier --write ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/v1ktor/epicbet-qa-task.git"
