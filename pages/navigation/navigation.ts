@@ -19,6 +19,13 @@ export class Navigation {
         await this.selectors.buttonSignup.click();
         await expect(this.selectors.modalAuth).toBeVisible();
         break;
+      case "sports":
+        await this.selectors.buttonSports.click();
+        break;
+      case "category-football":
+        await this.selectors.buttonSports.click();
+        await this.selectors.buttonCategoryFootball.click();
+        break;
     }
   }
 }

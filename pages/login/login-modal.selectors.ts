@@ -6,14 +6,19 @@ export class LoginModalSelectors {
 
   public readonly buttonLoginTab: Locator;
   public readonly buttonRegisterTab: Locator;
+
   public readonly buttonEmailOption: Locator;
   public readonly buttonBankOption: Locator;
   public readonly buttonGoogleOption: Locator;
   public readonly buttonFacebookOption: Locator;
+
   public readonly buttonLogin: Locator;
   public readonly buttonContinue: Locator;
   public readonly buttonSubmit: Locator;
   public readonly buttonBanks: Locator;
+
+  public readonly buttonClose: Locator;
+
   public readonly button50EUR: Locator;
   public readonly button150EUR: Locator;
   public readonly button250EUR: Locator;
@@ -32,6 +37,7 @@ export class LoginModalSelectors {
     this.buttonRegisterTab = page.locator(
       "button[data-testid='register-tab-button']",
     );
+
     this.buttonEmailOption = page.locator(
       "button[data-testid='email-option-button']",
     );
@@ -44,12 +50,16 @@ export class LoginModalSelectors {
     this.buttonFacebookOption = page.locator(
       "button[data-testid='email-option-button']~button:nth-of-type(4)",
     );
+
     this.buttonLogin = page.locator("button[data-testid='auth-login-button']");
     this.buttonContinue = page.locator("button[data-testid='continue-button']");
     this.buttonSubmit = page.locator("button[type='submit']");
     this.buttonBanks = page.locator(
       'section[data-test="ChooseBankList"] button',
     );
+
+    this.buttonClose = page.locator("button[data-testid='close-modal']");
+
     this.button50EUR = page
       .locator("div#modal button > div")
       .getByText("50 €", { exact: true });

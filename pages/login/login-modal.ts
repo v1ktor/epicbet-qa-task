@@ -23,6 +23,10 @@ export class LoginModal {
     await this.navigation.navigateTo(modal);
   }
 
+  public async close(): Promise<void> {
+    await this.selectors.buttonClose.click();
+  }
+
   public async selectTab(tab: LoginModalTabs): Promise<void> {
     const tabToClick: Record<LoginModalTabs, Locator> = {
       login: this.selectors.buttonLoginTab,

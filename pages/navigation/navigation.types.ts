@@ -1,1 +1,5 @@
-export type NavigateTo = "login" | "registration";
+export type NavigateTo =
+  | "login"
+  | "registration"
+  | "sports"
+  | "category-football";
