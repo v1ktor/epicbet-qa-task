@@ -1,22 +1,31 @@
 import { Locator, Page } from "@playwright/test";
+import { Amount } from "./login-modal.types";
 
 export class LoginModalSelectors {
-  readonly buttonLoginTab: Locator;
-  readonly buttonRegisterTab: Locator;
-  readonly buttonEmailOption: Locator;
-  readonly buttonBankOption: Locator;
-  readonly buttonGoogleOption: Locator;
-  readonly buttonFacebookOption: Locator;
-  readonly buttonLogin: Locator;
-  readonly buttonContinue: Locator;
-  readonly buttonSubmit: Locator;
-  readonly buttonBanks: Locator;
+  private readonly page: Page;
 
-  readonly inputEmail: Locator;
-  readonly inputPassword: Locator;
-  readonly inputSelectCountry: Locator;
+  public readonly buttonLoginTab: Locator;
+  public readonly buttonRegisterTab: Locator;
+  public readonly buttonEmailOption: Locator;
+  public readonly buttonBankOption: Locator;
+  public readonly buttonGoogleOption: Locator;
+  public readonly buttonFacebookOption: Locator;
+  public readonly buttonLogin: Locator;
+  public readonly buttonContinue: Locator;
+  public readonly buttonSubmit: Locator;
+  public readonly buttonBanks: Locator;
+  public readonly button50EUR: Locator;
+  public readonly button150EUR: Locator;
+  public readonly button250EUR: Locator;
+
+  public readonly inputEmail: Locator;
+  public readonly inputPassword: Locator;
+  public readonly inputSelectCountry: Locator;
+  public readonly inputAmount: Locator;
 
   constructor(page: Page) {
+    this.page = page;
+
     this.buttonLoginTab = page.locator(
       "button[data-testid='login-tab-button']",
     );
@@ -41,9 +50,25 @@ export class LoginModalSelectors {
     this.buttonBanks = page.locator(
       'section[data-test="ChooseBankList"] button',
     );
+    this.button50EUR = page
+      .locator("div#modal button > div")
+      .getByText("50 €", { exact: true });
+    this.button150EUR = page
+      .locator("div#modal button > div")
+      .getByText("150 €", { exact: true });
+    this.button250EUR = page
+      .locator("div#modal button > div")
+      .getByText("250 €", { exact: true });
 
     this.inputEmail = page.locator("input[data-testid='email-input']");
     this.inputPassword = page.locator("input[data-testid='password-input']");
     this.inputSelectCountry = page.locator('div[data-testkey="EE"]');
+    this.inputAmount = page.locator("div#modal input:nth-of-type(1)");
+  }
+
+  public textAmount(amount: Amount | string): Locator {
+    return this.page
+      .locator("h3")
+      .getByText(`Pangamakse ${amount}`, { exact: true });
   }
 }

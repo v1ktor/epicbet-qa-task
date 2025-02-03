@@ -1,5 +1,6 @@
 import { LoginModalSelectors } from "./login-modal.selectors";
 import { expect, Page } from "@playwright/test";
+import { Amount } from "./login-modal.types";
 
 export class LoginModalValidator {
   private readonly selectors: LoginModalSelectors;
@@ -50,5 +51,16 @@ export class LoginModalValidator {
     await expect(
       this.page.locator("div").getByText("Log Into Facebook"),
     ).toBeVisible();
+  }
+
+  public async validateRegistrationFormIsVisible(): Promise<void> {
+    await expect(this.selectors.inputSelectCountry).toBeVisible();
+    await expect(this.selectors.inputAmount).toBeVisible();
+  }
+
+  public async validateCorrectAmountIsSelected(
+    amount: Amount | string,
+  ): Promise<void> {
+    await expect(this.selectors.textAmount(amount)).toBeVisible();
   }
 }
