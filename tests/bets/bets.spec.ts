@@ -6,7 +6,7 @@ test.describe("BETS", () => {
     await cookie.declineCookies();
   });
 
-  test("Unauthorized user will be redirected to login screen, when he places a bet", async ({
+  test("Unauthorized user will be redirected to login screen, when bet is placed", async ({
     bets,
     loginModal,
   }) => {
