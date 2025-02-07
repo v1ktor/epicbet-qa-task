@@ -1,6 +1,6 @@
 import { SearchSelectors } from "./search.selectors";
 import { expect, Page } from "@playwright/test";
-import { SearchResults } from "./search.types";
+import { SearchResultsOptions } from "./search.types";
 
 export class SearchValidator {
   private readonly selectors: SearchSelectors;
@@ -10,7 +10,7 @@ export class SearchValidator {
   }
 
   public async validateCasinoSearchResults(
-    options: SearchResults,
+    options: SearchResultsOptions,
   ): Promise<void> {
     await expect(this.selectors.casinoGameCard).toHaveCount(
       options.expectedNumberOfResults,

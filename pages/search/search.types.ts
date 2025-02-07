@@ -1,5 +1,5 @@
 export type SearchTab = "casino" | "sports";
 
-export interface SearchResults {
+export interface SearchResultsOptions {
   expectedNumberOfResults: number;
 }
