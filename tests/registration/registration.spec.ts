@@ -1,5 +1,5 @@
 import { test } from "../../config/test-fixtures";
-import { Amount } from "../../pages/login/login-modal.types";
+import { Amount } from "../../components/login/login-modal.types";
 import { Tag } from "../../config/tag";
 
 test.describe("REGISTRATION", () => {

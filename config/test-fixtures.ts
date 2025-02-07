@@ -1,9 +1,9 @@
 import { test as base } from "@playwright/test";
-import { Cookie } from "../pages/cookie/cookie";
-import { Navigation } from "../pages/navigation/navigation";
-import { LoginModal } from "../pages/login/login-modal";
-import { Bets } from "../pages/bets/bets";
-import { Search } from "../pages/search/search";
+import { Cookie } from "../components/cookie/cookie";
+import { Navigation } from "../components/navigation/navigation";
+import { LoginModal } from "../components/login/login-modal";
+import { Bets } from "../components/bets/bets";
+import { Search } from "../components/search/search";
 
 type Fixtures = {
   cookie: Cookie;

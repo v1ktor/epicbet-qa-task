@@ -1,5 +1,5 @@
 import { test } from "../../config/test-fixtures";
-import { PlaceBetOptions } from "../../pages/bets/bets.types";
+import { PlaceBetOptions } from "../../components/bets/bets.types";
 import { Tag } from "../../config/tag";
 
 test.describe("BETS", () => {
