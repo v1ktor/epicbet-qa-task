@@ -23,9 +23,9 @@ test.describe("LOGIN", () => {
 
   test("Google login form is visible", async ({ loginModal }) => {
     await loginModal.selectLoginOption("google");
-    await loginModal.validator.validateGoogleLoginFormIsVisible(
-      "Jätka Googlega",
-    );
+    await loginModal.validator.validateGoogleLoginFormIsVisible({
+      translatedString: "Jätka Googlega",
+    });
 
     await loginModal.clickContinueWithGoogle();
     await loginModal.validator.validateSignInWithGooglePageIsInvoked();
@@ -33,9 +33,9 @@ test.describe("LOGIN", () => {
 
   test("Facebook login form is visible", async ({ loginModal }) => {
     await loginModal.selectLoginOption("facebook");
-    await loginModal.validator.validateFacebookLoginFormIsVisible(
-      "Jätka Facebookiga",
-    );
+    await loginModal.validator.validateFacebookLoginFormIsVisible({
+      translatedString: "Jätka Facebookiga",
+    });
 
     await loginModal.clickContinueWithFacebook();
     await loginModal.validator.validateSignInWithFacebookPageIsInvoked();

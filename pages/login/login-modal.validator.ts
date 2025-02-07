@@ -1,6 +1,6 @@
 import { LoginModalSelectors } from "./login-modal.selectors";
 import { expect, Page } from "@playwright/test";
-import { Amount } from "./login-modal.types";
+import { Amount, TranslationOptions } from "./login-modal.types";
 
 export class LoginModalValidator {
   private readonly selectors: LoginModalSelectors;
@@ -23,15 +23,19 @@ export class LoginModalValidator {
   }
 
   public async validateGoogleLoginFormIsVisible(
-    buttonTranslation: string,
+    options: TranslationOptions,
   ): Promise<void> {
-    await expect(this.selectors.buttonSubmit).toHaveText(buttonTranslation);
+    await expect(this.selectors.buttonSubmit).toHaveText(
+      options.translatedString,
+    );
   }
 
   public async validateFacebookLoginFormIsVisible(
-    buttonTranslation: string,
+    options: TranslationOptions,
   ): Promise<void> {
-    await expect(this.selectors.buttonSubmit).toHaveText(buttonTranslation);
+    await expect(this.selectors.buttonSubmit).toHaveText(
+      options.translatedString,
+    );
   }
 
   public async validateBankChoicePageIsInvoked(): Promise<void> {
